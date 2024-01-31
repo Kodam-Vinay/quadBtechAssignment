@@ -1,0 +1,9 @@
+.each-show-container {
+  max-width: 350px;
+  margin: 5px;
+  min-height: 450px;
+}
+
+.language-p-tag {
+  margin-top: -15px;
+}

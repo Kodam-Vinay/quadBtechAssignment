@@ -1,0 +1,8 @@
+.show-page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.show-page-heading {
+  text-align: center;
+}

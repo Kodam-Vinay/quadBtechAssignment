@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
+import ShowPage from "./components/ShowPage";
+import SummaryPage from "./components/SummaryPage";
+import DetailsContext from "./context/DetailsContext";
+import { useState } from "react";
+import Form from "./components/Form";
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <ShowPage />,
+  },
+  {
+    path: "/summary",
+    element: <SummaryPage />,
+  },
+  {
+    path: "/bookTicket",
+    element: <Form />,
+  },
+]);
 
 function App() {
+  const [completeDetails, setCompleteDetails] = useState({});
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid main-container font-monospace">
+      <DetailsContext.Provider
+        value={{
+          completeDetails: completeDetails,
+          setCompleteDetails: setCompleteDetails,
+        }}
+      >
+        <RouterProvider router={appRouter} />
+      </DetailsContext.Provider>
     </div>
   );
 }
