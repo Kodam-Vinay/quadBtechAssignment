@@ -7,11 +7,13 @@ const Form = () => {
   const [personName, setPersonName] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
   const [isTicketBooked, setIsTicketBooked] = useState(false);
+  const [ticketCount, setTicketCount] = useState(1);
   const details = {
     name: personName,
     mobile: mobileNumber,
     movieName: name,
     language: language,
+    noOfTickets: ticketCount,
   };
   const onClickBookTicket = () => {
     personName &&
@@ -22,6 +24,7 @@ const Form = () => {
       setIsTicketBooked(true);
     }
   };
+
   return (
     <div className="p-2 d-flex flex-column">
       <h1 className="fw-bold text-white text-center mb-5">Ticket Booking</h1>
@@ -59,8 +62,29 @@ const Form = () => {
               placeholder="Enter Your Name"
             />
           </div>
+          <div className="d-flex align-items-center mt-2">
+            <p className="w-25">Tickets: {ticketCount}</p>
+            <div className="mb-2 mx-3 w-75">
+              <button
+                className="btn btn-outline-dark text-white"
+                onClick={() => {
+                  ticketCount > 1 && setTicketCount(ticketCount - 1);
+                }}
+              >
+                -
+              </button>
+              <button
+                className="btn btn-outline-dark text-white mx-2"
+                onClick={() => {
+                  setTicketCount(ticketCount + 1);
+                }}
+              >
+                +
+              </button>
+            </div>
+          </div>
           <button
-            className="btn btn-outline-dark text-white mx-0 align-self-center book-button"
+            className="btn btn-outline-dark text-white mx-0 align-self-center book-button mt-2"
             onClick={onClickBookTicket}
           >
             Book Ticket

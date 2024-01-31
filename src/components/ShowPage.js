@@ -16,7 +16,11 @@ const ShowPage = () => {
           ))}
         </div>
       ) : (
-        <p>Loading.....</p>
+        <div className="d-flex flex-column align-items-center justify-content-center">
+          <div class="spinner-border text-info" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
       )}
     </div>
   );
