@@ -7,7 +7,6 @@ import DetailsContext from "../context/DetailsContext";
 const EachShow = ({ showDetails }) => {
   const { name, image, language, officialSite, genres, rating } =
     showDetails?.show;
-  console.log(showDetails);
 
   const { setCompleteDetails } = useContext(DetailsContext);
   const navigate = useNavigate();
